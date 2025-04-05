@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Go",
+    "version": "1.0",
+    "description": "Custom shortcut launcher from the omnibox.",
+    "permissions": ["tabs"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "omnibox": {
+      "keyword": "go"
+    },
+    "action": {
+      "default_title": "Manage Shortcuts"
+    }
+  }
+  
