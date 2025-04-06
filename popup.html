@@ -3,47 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Go Shortcut</title>
-    <style>
-      body {
-        font-family: sans-serif;
-        width: 300px;
-        padding: 10px;
-      }
-      h3 {
-        margin-top: 0;
-      }
-      input {
-        width: 100%;
-        margin: 5px 0;
-        padding: 5px;
-      }
-      button {
-        margin-top: 10px;
-      }
-      .shortcut {
-        margin-bottom: 10px;
-      }
-      .edit-btn {
-        margin-left: 10px;
-        cursor: pointer;
-      }
-      .shortcut-list {
-        margin-top: 10px;
-      }
-    </style>
+    <title>Go - Shortcuts Manager</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h3>Shortcuts</h3>
-    <div id="shortcut-list" class="shortcut-list"></div>
+    <div class="container">
+      <button id="back-btn" class="back-button" style="display: none">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+      </button>
 
-    <div id="shortcut-inputs">
-      <input id="key" placeholder="Shortcut key (e.g. cal)" />
-      <input id="url" placeholder="URL (e.g. https://calendar.google.com)" />
-      <button id="add">Add / Update Shortcut</button>
+      <header>
+        <h1>Go</h1>
+        <p class="subtitle">Shortcuts Manager</p>
+      </header>
+
+      <main>
+        <div id="add-update-section" class="section">
+          <div class="section-header">
+            <h2>Add/Edit Shortcut</h2>
+            <button id="view-all-btn" class="text-button">View All</button>
+          </div>
+          <div class="form-group">
+            <label for="key">Shortcut Key</label>
+            <input type="text" id="key" placeholder="e.g. cal" />
+          </div>
+          <div class="form-group">
+            <label for="url">URL</label>
+            <input type="text" id="url" placeholder="e.g. https://calendar.google.com" />
+          </div>
+          <div class="button-group">
+            <button id="delete-btn" class="danger-button" style="display: none">Delete</button>
+            <button id="save-btn" class="primary-button">Save Shortcut</button>
+          </div>
+        </div>
+
+        <div id="shortcut-list" class="section" style="display: none">
+          <div class="section-header">
+            <h2>Your Shortcuts</h2>
+          </div>
+          <div class="list-container"></div>
+        </div>
+      </main>
     </div>
 
-    <button id="show-all-btn">Show All</button>
+    <!-- Confirmation Dialog -->
+    <div id="confirm-dialog" class="confirm-dialog">
+      <div class="dialog-content">
+        <h3 class="dialog-header">Confirm Delete</h3>
+        <p class="dialog-message" id="confirm-message"></p>
+        <div class="dialog-buttons">
+          <button id="cancel-btn">Cancel</button>
+          <button id="confirm-btn">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="notification" class="notification">
+      <div class="notification-content">
+        <span class="notification-message"></span>
+      </div>
+    </div>
 
     <script src="popup.js"></script>
   </body>

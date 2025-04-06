@@ -1,58 +1,402 @@
-#shortcut-list div {
-  display: flex;
-  align-items: center;
-}
-
-#shortcut-list div::after {
-  content: " →"; /* Arrow symbol */
-  margin-left: 5px;
+/* General Styling */
+:root {
+  --primary-color: #2563EB;
+  --primary-hover: #1D4ED8;
+  --background-color: #0F172A;
+  --surface-color: #1E293B;
+  --text-color: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --border-color: #334155;
+  --success-color: #22C55E;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
 }
 
 body {
-  font-family: sans-serif;
-  width: 300px;
-  padding: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-width: 350px;
+  line-height: 1.5;
 }
 
-h3 {
-  margin-top: 0;
+.container {
+  padding: var(--spacing-lg);
+  position: relative;
 }
 
-input,
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-color);
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  margin: var(--spacing-xs) 0 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* Main Content */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.section {
+  background-color: var(--surface-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+}
+
+h2 {
+  margin: 0 0 var(--spacing-md);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+label {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 1px var(--primary-color);
+}
+
+input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* Buttons */
 button {
   width: 100%;
-  padding: 5px;
-  margin: 5px 0;
-}
-
-button {
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 500;
   cursor: pointer;
-  background-color: #4caf50;
-  color: white;
+  transition: all 0.2s ease;
   border: none;
-  border-radius: 3px;
+  letter-spacing: 0.3px;
 }
 
-button:hover {
-  background-color: #45a049;
+.primary-button {
+  background-color: var(--primary-color);
+  color: white;
 }
 
-#shortcut-list {
-  margin-top: 15px;
-  border-top: 1px solid #ccc;
-  padding-top: 10px;
+.primary-button:hover {
+  background-color: var(--primary-hover);
 }
 
-#shortcut-list div {
-  margin-bottom: 10px;
+.secondary-button {
+  background-color: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
 }
 
-#shortcut-list button {
-  background-color: #f39c12;
-  padding: 5px;
-  border-radius: 3px;
+.secondary-button:hover {
+  background-color: var(--surface-color);
 }
 
-#shortcut-list button:hover {
-  background-color: #e67e22;
+/* Shortcut List */
+.list-container {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.shortcut-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
+  background-color: var(--background-color);
+  margin-bottom: var(--spacing-xs);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.shortcut-item:hover {
+  border-color: var(--primary-color);
+}
+
+.shortcut-content {
+  flex: 1;
+  margin-right: var(--spacing-sm);
+}
+
+.shortcut-key {
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 13px;
+}
+
+.shortcut-url {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+  word-break: break-all;
+}
+
+.edit-btn {
+  padding: 6px var(--spacing-sm);
+  font-size: 12px;
+  width: auto;
+  min-width: 50px;
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.edit-btn:hover {
+  background-color: var(--surface-color);
+  color: var(--text-color);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Section Headers */
+.section-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.section-header h2 {
+  margin: 0;
+  text-align: left;
+  flex: 1;
+}
+
+/* Back Button */
+.back-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: color 0.2s ease;
+  position: absolute;
+  left: var(--spacing-sm);
+  top: var(--spacing-sm);
+  z-index: 1;
+}
+
+.back-button:hover {
+  color: var(--text-color);
+  background: none;
+}
+
+.back-button svg {
+  display: block;
+}
+
+/* Text Buttons */
+.text-button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: auto;
+  border-radius: var(--radius-sm);
+}
+
+.text-button:hover {
+  color: var(--text-color);
+  background-color: var(--surface-color);
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.button-group button {
+  flex: 1;
+}
+
+/* Danger Button */
+.danger-button {
+  background-color: #DC2626;
+  color: white;
+}
+
+.danger-button:hover {
+  background-color: #B91C1C;
+}
+
+/* Confirmation Dialog */
+.confirm-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dialog-content {
+  background-color: var(--surface-color);
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  max-width: 300px;
+  width: 90%;
+  border: 1px solid var(--border-color);
+}
+
+.dialog-header {
+  margin-bottom: 15px;
+  color: var(--text-color);
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
+.dialog-message {
+  margin-bottom: 20px;
+  color: var(--text-color);
+  line-height: 1.4;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.dialog-buttons button {
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.2s ease;
+}
+
+.dialog-buttons button:first-child {
+  background-color: var(--secondary-button);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.dialog-buttons button:last-child {
+  background-color: var(--danger-button);
+  color: white;
+}
+
+.dialog-buttons button:hover {
+  opacity: 0.9;
+}
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  z-index: 1001;
+  transition: transform 0.3s ease;
+}
+
+.notification.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+.notification-content {
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.notification.success .notification-content {
+  border-left: 4px solid #4CAF50;
+}
+
+.notification.error .notification-content {
+  border-left: 4px solid #f44336;
+}
+
+.notification-message {
+  font-size: 0.9em;
 }
