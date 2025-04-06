@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Go - Shortcuts Manager</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <div class="container">
@@ -43,6 +43,9 @@
           <div class="section-header">
             <h2>Your Shortcuts</h2>
           </div>
+          <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search shortcuts..." />
+          </div>
           <div class="list-container"></div>
         </div>
       </main>
@@ -66,6 +69,6 @@
       </div>
     </div>
 
-    <script src="popup.js"></script>
+    <script type="module" src="js/popup.js"></script>
   </body>
 </html>

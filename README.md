@@ -34,7 +34,7 @@ A Chrome extension that allows you to create custom shortcuts for your frequentl
 1. Download or clone this repository
 2. Open Chrome and navigate to `chrome://extensions/`
 3. Enable "Developer mode" in the top right corner
-4. Click "Load unpacked" and select the extension directory
+4. Click "Load unpacked" and select the `src` directory
 5. The extension is now installed and ready to use
 
 ## Usage
@@ -69,9 +69,27 @@ The extension comes with some default shortcuts:
 - `yt` → `https://youtube.com`
 - `git` → `https://github.com`
 
+## Development
+
+For information about contributing to this project, setting up a development environment, and understanding the codebase, please see our [Development Guide](docs/DEVELOPMENT.md).
+
+### Project Structure
+```
+src/
+├── js/               # JavaScript files
+├── css/              # Stylesheets
+├── assets/           # Static assets
+├── popup.html        # Popup UI
+└── manifest.json     # Extension config
+```
+
 ## Contributing
 
-Feel free to submit issues and enhancement requests!
+We welcome contributions! Please read our [Development Guide](docs/DEVELOPMENT.md) for details on:
+- Setting up your development environment
+- Code style guidelines
+- Testing procedures
+- Submitting pull requests
 
 ## License
 

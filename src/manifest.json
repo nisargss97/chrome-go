@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Go",
+  "version": "1.0",
+  "description": "Quickly navigate to your favorite websites using custom shortcuts",
+  "permissions": ["storage", "omnibox"],
+  "background": {
+    "service_worker": "js/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icon.png",
+      "32": "assets/icon.png",
+      "48": "assets/icon.png",
+      "128": "assets/icon.png"
+    }
+  },
+  "omnibox": {
+    "keyword": "go"
+  },
+  "icons": {
+    "16": "assets/icon.png",
+    "32": "assets/icon.png",
+    "48": "assets/icon.png",
+    "128": "assets/icon.png"
+  }
+}
