@@ -47,7 +47,7 @@ A Chrome extension that allows you to create custom shortcuts for your frequentl
 
 ### Using a Shortcut
 1. Click in the address bar
-2. Type your shortcut (e.g., "yt")
+2. Type go and space/tab your shortcut (e.g., "yt")
 3. Press Enter to navigate to the website
 
 ### Managing Shortcuts
